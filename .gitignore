@@ -1,0 +1,55 @@
+# --- Byte-compiled / optimized / DLL files ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual environment folders ---
+venv/
+env/
+ENV/
+.venv/
+
+# --- Python cache / test files ---
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.bak
+*.tmp
+*.old
+*.orig
+
+# --- Django specific ---
+*.sqlite3
+db.sqlite3
+*.log
+
+# Migrations - keep __init__.py to preserve package structure
+**/migrations/*.py
+**/migrations/*.pyc
+!**/migrations/__init__.py
+
+# --- IDEs and Editors ---
+.vscode/
+.idea/
+
+# --- MacOS / Windows ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- GitHub Codespaces or JetBrains ---
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# --- Node or JS if you ever add frontend ---
+node_modules/
+build/
+dist/
+*.lock
+package-lock.json
+yarn.lock
