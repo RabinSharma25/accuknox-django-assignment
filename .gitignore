@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment (skip if you're not using it, but good to have)
+venv/
+env/
+ENV/
+.venv/
+
+# Django migrations (optional, if you want to exclude them)
+*/migrations/*.py
+*/migrations/*.pyc
+!*/migrations/__init__.py
+
+# SQLite database
+db.sqlite3
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Scripts cache
+*.swp
