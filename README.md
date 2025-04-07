@@ -85,7 +85,7 @@ python3 manage.py migrate
 **✅ Answer**:  
 Django signals are executed **synchronously** by default. When the sender code executes, the connected signal handler runs immediately.
 
-**📂 Code File**: [`django-signals/01_test_signal_sync.py`](./django-signals/01_test_signal_sync.py)
+**📂 Code File**: [`01_test_signal_sync.py`](./django-signals/core/01_test_signal_sync.py)
 
 **▶️ Commands to Execute**:
 ```bash
@@ -101,7 +101,7 @@ python3 core/01_test_signal_sync.py
 **✅ Answer**:  
 Yes, Django signals run in the **same thread** as the caller. We can confirm this by comparing the `threading.get_ident()` of the sender and the signal.
 
-**📂 Code File**: [`django-signals/02_test_signal_thread.py`](./django-signals/02_test_signal_thread.py)
+**📂 Code File**: [`02_test_signal_thread.py`](./django-signals/core/02_test_signal_thread.py)
 
 **▶️ Commands to Execute**:
 ```bash
@@ -117,7 +117,7 @@ python3 core/02_test_signal_thread.py
 **✅ Answer**:  
 Yes, by default, signals like `post_save` run within the same transaction scope as the caller unless `transaction.on_commit()` is used.
 
-**📂 Code File**: [`django-signals/03_test_signal_transaction.py`](./django-signals/03_test_signal_transaction.py)
+**📂 Code File**: [`03_test_signal_transaction.py`](./django-signals/core/03_test_signal_transaction.py)
 
 **▶️ Commands to Execute**:
 ```bash
