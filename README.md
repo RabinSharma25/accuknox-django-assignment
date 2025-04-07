@@ -15,13 +15,13 @@ Before running the code examples, make sure your environment is properly configu
 
 #### Using HTTPS:
 ```bash
-git clone https://github.com/yourusername/accuknox-django-trainee-assignment.git
+git clone https://github.com/RabinSharma25/accuknox-django-trainee-assignment.git
 cd accuknox-django-trainee-assignment
 ```
 
 #### Using SSH:
 ```bash
-git clone git@github.com:yourusername/accuknox-django-trainee-assignment.git
+git clone git@github.com:RabinSharma25/accuknox-django-trainee-assignment.git
 cd accuknox-django-trainee-assignment
 ```
 
