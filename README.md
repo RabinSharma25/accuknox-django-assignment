@@ -72,19 +72,25 @@ pip3 install -r requirements.txt
 ## 🧹 Topic: Django Signals
 
 **Directory**: [`django-signals`](./django-signals)
-
+---
+**🔧 Run Initial Migrations (Required before execution):**
+```bash
+cd django-signals
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
 ### ❓ Question 1:
 > By default, are Django signals executed synchronously or asynchronously? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
 
 **✅ Answer**:  
 Django signals are executed **synchronously** by default. When the sender code executes, the connected signal handler runs immediately.
 
-**📂 Code File**: [`django-signals/question_1_sync.py`](./django-signals/question_1_sync.py)
+**📂 Code File**: [`django-signals/01_test_signal_sync.py`](./django-signals/01_test_signal_sync.py)
 
 **▶️ Commands to Execute**:
 ```bash
 cd django-signals
-python3 question_1_sync.py
+python3 core/01_test_signal_sync.py
 ```
 
 ---
@@ -95,12 +101,12 @@ python3 question_1_sync.py
 **✅ Answer**:  
 Yes, Django signals run in the **same thread** as the caller. We can confirm this by comparing the `threading.get_ident()` of the sender and the signal.
 
-**📂 Code File**: [`django-signals/question_2_thread.py`](./django-signals/question_2_thread.py)
+**📂 Code File**: [`django-signals/02_test_signal_thread.py`](./django-signals/02_test_signal_thread.py)
 
 **▶️ Commands to Execute**:
 ```bash
 cd django-signals
-python3 question_2_thread.py
+python3 core/02_test_signal_thread.py
 ```
 
 ---
@@ -111,13 +117,12 @@ python3 question_2_thread.py
 **✅ Answer**:  
 Yes, by default, signals like `post_save` run within the same transaction scope as the caller unless `transaction.on_commit()` is used.
 
-**📂 Code File**: [`django-signals/question_3_transaction.py`](./django-signals/question_3_transaction.py)
+**📂 Code File**: [`django-signals/03_test_signal_transaction.py`](./django-signals/03_test_signal_transaction.py)
 
 **▶️ Commands to Execute**:
 ```bash
 cd django-signals
-python3 manage.py migrate
-python3 question_3_transaction.py
+python3 core/03_test_signal_transaction.py
 ```
 
 ---
@@ -141,7 +146,7 @@ Create a `Rectangle` class with the following requirements:
 **▶️ Commands to Execute**:
 ```bash
 cd custom-classes-python
-python3 rectangle.py
+python3 main.py
 ```
 
 ---
