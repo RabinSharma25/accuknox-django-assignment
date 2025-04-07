@@ -1,45 +1,167 @@
+# Django Trainee Assignment – Accuknox
 
-# Accuknox Django Trainee Assignment
+This repository contains solutions to the Django Signals and Python Custom Class problems assigned for the Django Trainee position at **Accuknox**. The repository is organized into two directories:
 
-This repository contains solutions to the assignment provided for the Django Trainee position at **Accuknox**. It covers two major topics:
-
-1. **Django Signals**
-2. **Custom Classes in Python**
-
----
-
-## 🧠 Assignment 1: Django Signals
-
-📁 Directory: `django_signals_assignment/`
-
-This section addresses the following questions:
-
-### ✅ Question 1:
-**Are Django signals executed synchronously or asynchronously by default?**  
-Includes a code snippet that demonstrates the behavior.
-
-### ✅ Question 2:
-**Do Django signals run in the same thread as the caller?**  
-Includes a working example showing signal and caller thread info.
-
-### ✅ Question 3:
-**Do Django signals run in the same database transaction as the caller?**  
-A sample is provided to observe signal execution within a transaction.
-
-📌 To test these, go to the `django_signals_assignment` directory and follow the setup instructions inside the project.
+- `django-signals`: Contains Django signal-related examples with proof-of-concept implementations.
+- `custom-classes-python`: Contains Python code for a custom `Rectangle` class with iterable behavior.
 
 ---
 
-## 🧠 Assignment 2: Custom Classes in Python
+## 📦 Project Setup Instructions
 
-📁 Directory: `rectangle_class_assignment/`
+Before running the code examples, make sure your environment is properly configured. Follow the setup instructions below for your operating system:
 
-### Task Description:
-Create a `Rectangle` class that:
+### 1. Clone the Repository
 
-- Is initialized with `length: int` and `width: int`.
-- Is iterable using a `for` loop.
-- Yields:
-  ```python
-  {'length': <value>}
-  {'width': <value>}
+#### Using HTTPS:
+```bash
+git clone https://github.com/yourusername/accuknox-django-trainee-assignment.git
+cd accuknox-django-trainee-assignment
+```
+
+#### Using SSH:
+```bash
+git clone git@github.com:yourusername/accuknox-django-trainee-assignment.git
+cd accuknox-django-trainee-assignment
+```
+
+### 2. Install Python and pip
+
+#### For **Windows**:
+- Download Python from [python.org](https://www.python.org/downloads/)
+- During installation, ensure **Add Python to PATH** is checked.
+- Open Command Prompt and verify:
+```bash
+python3 --version
+pip3 --version
+```
+
+#### For **macOS**:
+```bash
+brew install python
+python3 --version
+pip3 --version
+```
+
+#### For **Linux (Ubuntu/Debian)**:
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+python3 --version
+pip3 --version
+```
+
+### 3. Create a Virtual Environment (Optional but Recommended)
+
+```bash
+python3 -m venv env
+source env/bin/activate  # macOS/Linux
+env\Scripts\activate     # Windows
+```
+
+### 4. Install Dependencies
+
+All dependencies are listed in the `requirements.txt` file. To install them:
+
+```bash
+pip3 install -r requirements.txt
+```
+
+---
+
+## 🧹 Topic: Django Signals
+
+**Directory**: [`django-signals`](./django-signals)
+
+### ❓ Question 1:
+> By default, are Django signals executed synchronously or asynchronously? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
+
+**✅ Answer**:  
+Django signals are executed **synchronously** by default. When the sender code executes, the connected signal handler runs immediately.
+
+**📂 Code File**: [`django-signals/question_1_sync.py`](./django-signals/question_1_sync.py)
+
+**▶️ Commands to Execute**:
+```bash
+cd django-signals
+python3 question_1_sync.py
+```
+
+---
+
+### ❓ Question 2:
+> Do Django signals run in the same thread as the caller? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
+
+**✅ Answer**:  
+Yes, Django signals run in the **same thread** as the caller. We can confirm this by comparing the `threading.get_ident()` of the sender and the signal.
+
+**📂 Code File**: [`django-signals/question_2_thread.py`](./django-signals/question_2_thread.py)
+
+**▶️ Commands to Execute**:
+```bash
+cd django-signals
+python3 question_2_thread.py
+```
+
+---
+
+### ❓ Question 3:
+> By default, do Django signals run in the same database transaction as the caller? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
+
+**✅ Answer**:  
+Yes, by default, signals like `post_save` run within the same transaction scope as the caller unless `transaction.on_commit()` is used.
+
+**📂 Code File**: [`django-signals/question_3_transaction.py`](./django-signals/question_3_transaction.py)
+
+**▶️ Commands to Execute**:
+```bash
+cd django-signals
+python3 manage.py migrate
+python3 question_3_transaction.py
+```
+
+---
+
+## 📆 Topic: Custom Classes in Python
+
+**Directory**: [`custom-classes-python`](./custom-classes-python)
+
+### 🔮 Description:
+Create a `Rectangle` class with the following requirements:
+1. Accept `length: int` and `width: int` during initialization.
+2. Supports iteration.
+3. When iterated, yields values in the following format:
+   ```python
+   {'length': <VALUE>}
+   {'width': <VALUE>}
+   ```
+
+**📂 Code File**: [`custom-classes-python/rectangle.py`](./custom-classes-python/rectangle.py)
+
+**▶️ Commands to Execute**:
+```bash
+cd custom-classes-python
+python3 rectangle.py
+```
+
+---
+
+## 📄 requirements.txt
+
+```txt
+Django>=4.0
+```
+
+Install via:
+```bash
+pip3 install -r requirements.txt
+```
+
+---
+
+## 📨 Contact
+
+**Rabin**  
+📧 your.email@example.com  
+👤 [GitHub](https://github.com/yourusername) | [LinkedIn](https://linkedin.com/in/yourprofile)
+
