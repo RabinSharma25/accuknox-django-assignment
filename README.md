@@ -84,7 +84,7 @@ python3 manage.py migrate
 > By default, are Django signals executed synchronously or asynchronously? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
 
 **✅ Answer**:  
-Django signals are executed **synchronously** by default. When the sender code executes, the connected signal handler runs immediately.
+Django signals are executed **synchronously** by default. This means that any signal handler will block the flow of code until it finishes. I proved this by adding a time.sleep(5) in a post_save signal and measuring the time it took for .create() to return. It clearly waited ~5 seconds, showing the signal runs inline with the calling process.
 
 **📂 Code File**: [`01_test_signal_sync.py`](./django-signals/core/01_test_signal_sync.py)
 
@@ -100,7 +100,8 @@ python3 core/01_test_signal_sync.py
 > Do Django signals run in the same thread as the caller? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
 
 **✅ Answer**:  
-Yes, Django signals run in the **same thread** as the caller. We can confirm this by comparing the `threading.get_ident()` of the sender and the signal.
+Yes, Django signals run in the **same thread** as the caller by default. We can confirm this by comparing the `threading.current_thread().name` of the sender and the signal.
+This means any delay or heavy logic inside the signal handler will block the main thread and increase the time taken by the operation (e.g., .save() or .create()).
 
 **📂 Code File**: [`02_test_signal_thread.py`](./django-signals/core/02_test_signal_thread.py)
 
@@ -116,7 +117,9 @@ python3 core/02_test_signal_thread.py
 > By default, do Django signals run in the same database transaction as the caller? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
 
 **✅ Answer**:  
-Yes, by default, signals like `post_save` run within the same transaction scope as the caller unless `transaction.on_commit()` is used.
+Yes, by default, Django signals like post_save run within the `same database transaction` as the caller.
+This means: if you raise an exception inside the signal or the main code, everything gets `rolled back`.
+
 
 **📂 Code File**: [`03_test_signal_transaction.py`](./django-signals/core/03_test_signal_transaction.py)
 
@@ -141,6 +144,8 @@ Create a `Rectangle` class with the following requirements:
    {'length': <VALUE>}
    {'width': <VALUE>}
    ```
+**✅ Answer**:  
+We’ll use the __iter__() method to make the object iterable.
 
 **📂 Code File**: [`custom-classes-python/rectangle.py`](./custom-classes-python/rectangle.py)
 
