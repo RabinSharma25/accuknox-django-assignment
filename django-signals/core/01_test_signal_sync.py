@@ -20,6 +20,7 @@ django.setup()
 
 from core.models import Car
 
+
 print("[MAIN] Creating Car...")
 start = time.time()
 Car.objects.create(name="Tesla Model 3")
