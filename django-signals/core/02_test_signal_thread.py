@@ -6,7 +6,7 @@ elegant and production ready, we just need to understand your logic.
 
 
 Answer:-
-Yes, Django signals run in the same thread as the caller by default.
+Yes, Django signals run in the **same thread** as the caller by default. We can confirm this by comparing the `threading.current_thread().name` of the sender and the signal.
 This means any delay or heavy logic inside the signal handler will block the main thread and increase the time taken by the operation (e.g., .save() or .create()).
 '''
 # To run this file run the command given below
