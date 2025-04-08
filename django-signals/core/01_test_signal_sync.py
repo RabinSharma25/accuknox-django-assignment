@@ -26,3 +26,6 @@ Car.objects.create(name="Tesla Model 3")
 
 end = time.time()
 print(f"[MAIN] Done. Time taken: {end - start:.2f} seconds")
+
+
+#command to run 

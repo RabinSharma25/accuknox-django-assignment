@@ -10,6 +10,8 @@ def slow_signal_handler(sender, instance, created, **kwargs):
         time.sleep(5)
         print("[SIGNAL] Done sleeping.")
 
+
+
 # ✅ This signal proves that Django signals run in the same DB transaction as the caller.
 @receiver(post_save, sender=Book)
 def create_book_log(sender, instance, created, **kwargs):
