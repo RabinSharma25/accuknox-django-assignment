@@ -15,13 +15,13 @@ Before running the code examples, make sure your environment is properly configu
 
 #### Using HTTPS:
 ```bash
-git clone https://github.com/yourusername/accuknox-django-trainee-assignment.git
+git clone https://github.com/RabinSharma25/accuknox-django-trainee-assignment.git
 cd accuknox-django-trainee-assignment
 ```
 
 #### Using SSH:
 ```bash
-git clone git@github.com:yourusername/accuknox-django-trainee-assignment.git
+git clone git@github.com:RabinSharma25/accuknox-django-trainee-assignment.git
 cd accuknox-django-trainee-assignment
 ```
 
@@ -72,13 +72,14 @@ pip3 install -r requirements.txt
 ## 🧹 Topic: Django Signals
 
 **Directory**: [`django-signals`](./django-signals)
----
+
 **🔧 Run Initial Migrations (Required before execution):**
 ```bash
 cd django-signals
 python3 manage.py makemigrations
 python3 manage.py migrate
 ```
+---
 ### ❓ Question 1:
 > By default, are Django signals executed synchronously or asynchronously? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
 
