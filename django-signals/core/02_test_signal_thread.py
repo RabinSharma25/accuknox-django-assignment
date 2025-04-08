@@ -13,8 +13,6 @@ This means any delay or heavy logic inside the signal handler will block the mai
 # python3 core/test_signal_thread.py
 
 
-
-
 import time
 import threading
 import os
@@ -40,5 +38,3 @@ Book.objects.create(title="Thread Test Book")
 end = time.time()
 
 print(f"[MAIN] Save done in {end - start:.2f} seconds")
-
-# ✅ This proves Django signals run in the same thread as the caller by printing thread names.
